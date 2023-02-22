@@ -1,12 +1,9 @@
 //import { useState } from "react";
-//import reactLogo from "./assets/react.svg";
-//import Hello from "./Hello";
-import { createCards } from "./Cards";
 import "./App.css";
-import { cardColorToBgColorClassName } from "./Helper";
+import { cardColorToBgColorClassName, createCards } from "./Helper";
 
 function App() {
-  const cards = createCards();
+  const cards: Card[] = createCards();
 
   return (
     <div className="App">
