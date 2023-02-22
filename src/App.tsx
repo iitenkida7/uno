@@ -14,17 +14,32 @@ function App() {
 
   return (
     <div className="App">
-      <ul>
+      <div>
         {cards.map((card: Card) => (
-          <li>
-            <span className="text-3xl font-bold underline">
-              {card.color} / {card.number}
-            </span>
-          </li>
+          <div className={"w-[300px] h-[400px] flex justify-center items-center rounded-lg shadow-2xl " + cardColorToBgColorClassName(card.color)}>
+            <div className="bg-gray-700 w-3/5 h-3/5 flex justify-center items-center rounded-lg">
+              <div className="text-9xl font-bold text-white">{card.number}</div>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
+
+const cardColorToBgColorClassName = (colorName: string) => {
+  if (colorName === "Red") {
+    return "bg-red-500";
+  }
+  if (colorName === "Blue") {
+    return "bg-blue-500";
+  }
+  if (colorName === "Yellow") {
+    return "bg-yellow-500";
+  }
+  if (colorName === "Green") {
+    return "bg-green-500";
+  }
+};
 
 export default App;
