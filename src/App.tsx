@@ -10,6 +10,10 @@ function App() {
     id: number;
     title: string;
   };
+  type Card = {
+    color: string;
+    number: number;
+  };
 
   const items: Item[] = [
     { id: 1, title: "yamada" },
@@ -24,9 +28,9 @@ function App() {
   return (
     <div className="App">
       <ul>
-        {items.map((item: Item) => (
+        {cards.map((card: Card) => (
           <li>
-            {item.id} / {item.title}
+            <span className="text-3xl font-bold underline">{card.color} / {card.number}</span>
           </li>
         ))}
       </ul>
