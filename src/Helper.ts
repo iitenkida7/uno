@@ -6,7 +6,7 @@ export const shuffleArray = (array: Card[]) => {
   return array;
 };
 
-export const cardColorToBgColorClassName = (colorName: string) => {
+export const cardColorToBgColorClassName = (colorName: Color) => {
   if (colorName === "Red") {
     return "bg-red-500";
   }
@@ -22,22 +22,24 @@ export const cardColorToBgColorClassName = (colorName: string) => {
 };
 
 export const createCards = () => {
-  const colors: string[] = ["Red", "Yellow", "Green", "Blue"];
+  const colors: Color[] = ["Red", "Yellow", "Green", "Blue"];
   const cards: Card[] = [];
   colors.map((color) => {
-    for (let i = 0; i <= 9; i++) {
+    const cardNumbers: CardNumber[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    cardNumbers.map((cardNumber) => {
       cards.push({
         color: color,
-        number: i,
+        number: cardNumber,
       });
 
-      if (i !== 0) {
+      if (cardNumber !== 0) {
         cards.push({
           color: color,
-          number: i,
+          number: cardNumber,
         });
       }
-    }
+    });
   });
+
   return shuffleArray(cards);
 };
